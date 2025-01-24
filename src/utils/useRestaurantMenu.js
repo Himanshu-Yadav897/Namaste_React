@@ -9,7 +9,8 @@ const useRestaurantMenu = (resid) => {
     }, [resid])
 
     const fetchData = async()=> {
-        const data = await fetch(Menu_API + resid);
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const data = await fetch(proxyUrl+Menu_API + resid);
         const json = await data.json();
 
         setResInfo(json);

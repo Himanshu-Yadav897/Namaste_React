@@ -26,20 +26,20 @@ const Header = () => {
       <div className="flex items-center">
         <ul className="flex p-4 m-4">
           <li className="px-4">Online Status : {OnlineStatus ? "🟢" : "🔴"}</li>
-          <li className="px-4">
+          <li className="px-4 hover:font-bold ">
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="px-4">
+          <li className="px-4 hover:font-bold">
             <Link to="/about"> About Us</Link>
           </li>
-          <li className="px-4">
+          <li className="px-4 hover:font-bold">
             <Link to={"/contact"}> Contact Us</Link>
           </li>
-          <li className="px-4 font-bold">
+          <li className="px-4 hover:font-bold">
             <Link to={"/cart"}>Cart ({cartItems.length} Items)</Link>
           </li>
           <button
-            className="login"
+            className="hover:font-bold"
             onClick={() => {
               if (Name === "login") {
                 setName("logout");
