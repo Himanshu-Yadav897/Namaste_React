@@ -19,10 +19,12 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    const targetUrl =
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-    const data = await fetch(proxyUrl + targetUrl);
+    const targetUrl = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
+    // Call the Netlify function instead of the Swiggy API directly
+    const proxyUrl = `/.netlify/functions/swiggy-proxy?url=${encodeURIComponent(targetUrl)}`;
+  
+    const data = await fetch(proxyUrl);
 
     const JSON = await data.json();
     console.log(JSON);
