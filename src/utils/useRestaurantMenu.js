@@ -9,8 +9,8 @@ const useRestaurantMenu = (resid) => {
     }, [resid])
 
     const fetchData = async()=> {
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const data = await fetch(proxyUrl+Menu_API + resid);
+        const proxyUrl = `/.netlify/functions/swiggy-proxy?url=${encodeURIComponent(Menu_API)}`;;
+        const data = await fetch(proxyUrl+resid);
         const json = await data.json();
 
         setResInfo(json);
